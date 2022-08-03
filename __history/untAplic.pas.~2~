@@ -1,0 +1,73 @@
+unit untAplic;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Menus;
+
+type
+  TfrmAplic = class(TForm)
+    StatusBar1: TStatusBar;
+    Timer1: TTimer;
+    MainMenu1: TMainMenu;
+    Aplicativos1: TMenuItem;
+    Sair1: TMenuItem;
+    New1: TMenuItem;
+    New2: TMenuItem;
+    OpenProject1: TMenuItem;
+    Excel1: TMenuItem;
+    procedure Timer1Timer(Sender: TObject);
+    procedure Sair1Click(Sender: TObject);
+    procedure New1Click(Sender: TObject);
+    procedure New2Click(Sender: TObject);
+    procedure OpenProject1Click(Sender: TObject);
+    procedure Excel1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmAplic: TfrmAplic;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmAplic.Excel1Click(Sender: TObject);
+begin
+      WinExec('C:\Program Files\Microsoft Office\Office16\excel.exe', SW_SHOWNORMAL);
+end;
+
+procedure TfrmAplic.New1Click(Sender: TObject);
+begin
+      WinExec('calc.exe', SW_SHOWNORMAL);
+end;
+
+procedure TfrmAplic.New2Click(Sender: TObject);
+begin
+      WinExec('notepad.exe', SW_SHOWNORMAL);
+end;
+
+procedure TfrmAplic.OpenProject1Click(Sender: TObject);
+begin
+      WinExec('C:\Program Files\Microsoft Office\Office16\winword.exe', SW_SHOWNORMAL);
+end;
+
+procedure TfrmAplic.Sair1Click(Sender: TObject);
+begin
+      if application.MessageBox('Deseja sair?','Confirme',
+      mb_yesno+mb_iconquestion+mb_defbutton2) = idyes then
+        close;
+
+end;
+
+procedure TfrmAplic.Timer1Timer(Sender: TObject);
+begin
+      StatusBar1.Panels[0].Text := DateToStr(date);
+      StatusBar1.Panels[1].Text := FormatDateTime('hh:nn', time);
+end;
+
+end.

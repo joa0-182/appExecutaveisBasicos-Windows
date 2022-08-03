@@ -1,0 +1,89 @@
+unit untAplic;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Menus;
+
+type
+  TfrmAplic = class(TForm)
+    StatusBar1: TStatusBar;
+    Timer1: TTimer;
+    MainMenu1: TMainMenu;
+    Aplicativos1: TMenuItem;
+    Sair1: TMenuItem;
+    Calculadora1: TMenuItem;
+    WindowsExplorer1: TMenuItem;
+    PromptdeComando1: TMenuItem;
+    Paint1: TMenuItem;
+    BlocodeNotas1: TMenuItem;
+    Wordpad1: TMenuItem;
+    Regedit1: TMenuItem;
+    ecladoVirtual1: TMenuItem;
+    procedure Timer1Timer(Sender: TObject);
+    procedure Sair1Click(Sender: TObject);
+    procedure Calculadora1Click(Sender: TObject);
+    procedure WindowsExplorer1Click(Sender: TObject);
+    procedure PromptdeComando1Click(Sender: TObject);
+    procedure Paint1Click(Sender: TObject);
+    procedure BlocodeNotas1Click(Sender: TObject);
+    procedure Wordpad1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmAplic: TfrmAplic;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmAplic.BlocodeNotas1Click(Sender: TObject);
+begin
+      WinExec('notepad.exe', SW_SHOWNORMAL);
+end;
+
+procedure TfrmAplic.Calculadora1Click(Sender: TObject);
+begin
+      WinExec('calc.exe', SW_SHOWNORMAL);
+end;
+
+procedure TfrmAplic.Paint1Click(Sender: TObject);
+begin
+      WinExec('Mspaint.exe', SW_SHOWNORMAL);
+end;
+
+procedure TfrmAplic.PromptdeComando1Click(Sender: TObject);
+begin
+      WinExec('cmd.exe', SW_SHOWNORMAL);
+end;
+
+procedure TfrmAplic.Sair1Click(Sender: TObject);
+begin
+      if application.MessageBox('Deseja sair?','Confirme',
+      mb_yesno+mb_iconquestion+mb_defbutton2) = idyes then
+        close;
+
+end;
+
+procedure TfrmAplic.Timer1Timer(Sender: TObject);
+begin
+      StatusBar1.Panels[0].Text := DateToStr(date);
+      StatusBar1.Panels[1].Text := FormatDateTime('hh:nn', time);
+end;
+
+procedure TfrmAplic.WindowsExplorer1Click(Sender: TObject);
+begin
+      WinExec('Explorer.exe', SW_SHOWNORMAL);
+end;
+
+procedure TfrmAplic.Wordpad1Click(Sender: TObject);
+begin
+      WinExec('write.exe', SW_SHOWNORMAL);
+end;
+
+end.

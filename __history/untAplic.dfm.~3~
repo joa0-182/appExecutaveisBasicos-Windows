@@ -1,0 +1,88 @@
+object frmAplic: TfrmAplic
+  Left = 0
+  Top = 0
+  Caption = 'Execut'#225'veis Windows'
+  ClientHeight = 622
+  ClientWidth = 875
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 603
+    Width = 875
+    Height = 19
+    Panels = <
+      item
+        Alignment = taCenter
+        Width = 100
+      end
+      item
+        Alignment = taCenter
+        Width = 100
+      end
+      item
+        Alignment = taCenter
+        Width = 100
+      end>
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 8
+    Top = 552
+  end
+  object MainMenu1: TMainMenu
+    Left = 56
+    Top = 552
+    object Aplicativos1: TMenuItem
+      Caption = 'Aplicativos'
+      object Calculadora1: TMenuItem
+        Caption = 'Calculadora'
+        OnClick = Calculadora1Click
+      end
+      object WindowsExplorer1: TMenuItem
+        Caption = 'Windows Explorer'
+        OnClick = WindowsExplorer1Click
+      end
+      object PromptdeComando1: TMenuItem
+        Caption = 'Prompt de Comando'
+        OnClick = PromptdeComando1Click
+      end
+      object Excel1: TMenuItem
+        Caption = 'Excel (se instalado)'
+      end
+      object Wor1: TMenuItem
+        Caption = 'Word (se instalado)'
+      end
+      object PowerPointseinstalado1: TMenuItem
+        Caption = 'PowerPoint (se instalado)'
+      end
+      object Paint1: TMenuItem
+        Caption = 'Paint'
+        OnClick = Paint1Click
+      end
+      object BlocodeNotas1: TMenuItem
+        Caption = 'Bloco de Notas'
+        OnClick = BlocodeNotas1Click
+      end
+      object Notepad1: TMenuItem
+        Caption = 'Notepad++'
+      end
+      object Wordpad1: TMenuItem
+        Caption = 'Wordpad'
+      end
+    end
+    object Sair1: TMenuItem
+      Caption = 'Sair'
+      OnClick = Sair1Click
+    end
+  end
+end

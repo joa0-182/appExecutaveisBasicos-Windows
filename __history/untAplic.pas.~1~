@@ -1,0 +1,33 @@
+unit untAplic;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls;
+
+type
+  TfrmAplic = class(TForm)
+    StatusBar1: TStatusBar;
+    Timer1: TTimer;
+    procedure Timer1Timer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmAplic: TfrmAplic;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmAplic.Timer1Timer(Sender: TObject);
+begin
+      StatusBar1.Panels[0].Text := DateToStr(date);
+      StatusBar1.Panels[1].Text := FormatDateTime('hh:nn', time);
+end;
+
+end.
